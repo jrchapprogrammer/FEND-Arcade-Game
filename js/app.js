@@ -8,8 +8,8 @@ class Enemy {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = positionX;
-    this.y = positionY;
+    this.x = positionX * 101;
+    this.y = positionY * 83;
     this.speed = speed;
   }
   update(dt) {
@@ -46,8 +46,8 @@ const { boy, catGirl, hornGirl, pinkGirl, princess } = sprites;
 class Player {
   constructor(sprite, positionX, positionY) {
     this.sprite = sprite;
-    this.x = positionX;
-    this.y = positionY;
+    this.x = positionX * 101;
+    this.y = positionY * 83;
   }
   update(dt) {
     // You should multiply any movement by the dt parameter
