@@ -63,12 +63,12 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const player = new Player(boy, 3, 6);
-const enemy1 = new Enemy(2, 1, 0.5);
-const enemy2 = new Enemy(3, 1, 0.25);
-const enemy3 = new Enemy(3, 1, 1);
-const enemy4 = new Enemy(4, 1, 0.45);
-const enemy5 = new Enemy(4, 1, 0.75);
+const player = new Player(boy, 2, 5);
+const enemy1 = new Enemy(0, 1, 0.5);
+const enemy2 = new Enemy(0, 1, 0.25);
+const enemy3 = new Enemy(0, 2, 1);
+const enemy4 = new Enemy(0, 3, 0.45);
+const enemy5 = new Enemy(0, 3, 0.75);
 allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5);
 
 // This listens for key presses and sends the keys to your
