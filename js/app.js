@@ -57,18 +57,24 @@ class Player {
     this.initialX = positionX * 101;
     this.initialY = positionY * 80;
   }
-  update() {}
+  update() {
+    if (this.y < 68) {
+      this.x = this.initialX;
+      this.y = this.initialY;
+      return;
+    }
+  }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
   handleInput(allowedKeys) {
-    if (allowedKeys === 'left') {
+    if (allowedKeys === 'left' && this.x > 0) {
       this.x -= 101;
-    } else if (allowedKeys === 'right') {
+    } else if (allowedKeys === 'right' && this.x < 404) {
       this.x += 101;
-    } else if (allowedKeys === 'up') {
+    } else if (allowedKeys === 'up' && this.y > 0) {
       this.y -= 83;
-    } else if (allowedKeys === 'down') {
+    } else if (allowedKeys === 'down' && this.y < 400) {
       this.y += 83;
     }
     console.log(this.x, this.y);
