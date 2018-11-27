@@ -54,6 +54,8 @@ class Player {
     this.x = positionX * 101;
     this.y = positionY * 80;
     this.sprite = sprite;
+    this.initialX = positionX * 101;
+    this.initialY = positionY * 80;
   }
   update() {}
   render() {
