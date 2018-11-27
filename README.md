@@ -3,18 +3,20 @@
 ## Table of Contents
 
 - [Instructions](#instructions)
-- [Contributing](#contributing)
+- [Dependencies](#dependencies)
 
 ## Instructions
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+### How to run
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+You can find a playable version at [jrchapprogrammer/FEND-Arcade-Game](https://jrchapprogrammer.github.io/FEND-Arcade-Game/).
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+### Gameplay
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+To start, you may select a **character**. Once selected, your character starts at the bottom of the field. The goal is to get your character to the **water**, while **avoiding the bugs**. If you get attacked by any bugs, your character has to start over.
 
-## Contributing
+## Dependencies
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+The _index.html_, _engine.js_ game engine, _resources.js_ image loader, _app.js_ starting code, sprite assets and css were all provided by Udacity.
+
+I also brought in a sprite collision algorithm provided by [Stack Overflow](https://stackoverflow.com/questions/13916966/adding-collision-detection-to-images-drawn-on-canvas).
