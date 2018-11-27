@@ -1,15 +1,25 @@
 let allEnemies = [];
+const borderBounds = {
+  leftX: 0,
+  rightX: 505,
+  topY: 0,
+  bottomY: 606,
+};
+class Sprite {
+  constructor(positionX, positionY) {
+    this.x = positionX * 101;
+    this.y = positionY * 83;
+  }
+}
 // Enemies our player must avoid
-class Enemy {
+class Enemy extends Sprite {
   constructor(positionX, positionY, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    super(positionX, positionY);
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = positionX * 101;
-    this.y = positionY * 83;
     this.speed = speed;
   }
   update(dt) {
@@ -20,7 +30,7 @@ class Enemy {
         // which will ensure the game runs at the same speed for
         // all computers.
     }; */
-    return this.speed * dt;
+    return this.x >= 505 ? (this.x *= 0) : (this.x += this.speed) * dt;
   }
   // Draw the enemy on the screen, required method for game
   render() {
@@ -43,11 +53,10 @@ const sprites = {
 
 const { boy, catGirl, hornGirl, pinkGirl, princess } = sprites;
 
-class Player {
+class Player extends Sprite {
   constructor(sprite, positionX, positionY) {
+    super(positionX, positionY);
     this.sprite = sprite;
-    this.x = positionX * 101;
-    this.y = positionY * 83;
   }
   update(dt) {
     // You should multiply any movement by the dt parameter
@@ -57,7 +66,24 @@ class Player {
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-  handleInput() {}
+  handleInput(allowedKeys) {
+    if (allowedKeys[e.keyCode] === 37) {
+      this.x -= 1;
+      console.log('left');
+    }
+    if (allowedKeys[e.keyCode] === 39) {
+      this.x += 1;
+      console.log('right');
+    }
+    if (allowedKeys[e.keyCode] === 38) {
+      this.y -= 1;
+      console.log('up');
+    }
+    if (allowedKeys[e.keyCode] === 40) {
+      this.y += 1;
+      console.log('down');
+    }
+  }
 }
 
 // Now instantiate your objects.
@@ -65,10 +91,10 @@ class Player {
 // Place the player object in a variable called player
 const player = new Player(boy, 2, 5);
 const enemy1 = new Enemy(0, 1, 0.5);
-const enemy2 = new Enemy(0, 1, 0.25);
-const enemy3 = new Enemy(0, 2, 1);
-const enemy4 = new Enemy(0, 3, 0.45);
-const enemy5 = new Enemy(0, 3, 0.75);
+const enemy2 = new Enemy(0, 1, 1.25);
+const enemy3 = new Enemy(0, 2, 3);
+const enemy4 = new Enemy(0, 3, 2.45);
+const enemy5 = new Enemy(0, 3, 4.5);
 allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5);
 
 // This listens for key presses and sends the keys to your
