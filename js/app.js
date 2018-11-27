@@ -59,7 +59,7 @@ class Player {
     this.sprite = sprite;
     this.initialX = positionX * 101;
     this.initialY = positionY * 80;
-    this.width = 90;
+    this.width = 50;
     this.height = 101;
     this.score = 0;
   }
