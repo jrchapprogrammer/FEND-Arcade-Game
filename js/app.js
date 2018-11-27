@@ -1,24 +1,26 @@
-let allEnemies = [];
-const borderBounds = {
-  leftX: 0,
-  rightX: 505,
-  topY: 0,
-  bottomY: 606,
-};
+let allEnemies = []; // enemy array for resource loading
 
 // Enemies our player must avoid
 class Enemy {
-  constructor(positionX, positionY, speed) {
+  constructor() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = positionX;
-    this.y = positionY * 73;
+    this.x = 0;
+    this.y = this.getRandomInt(1, 3) * 73;
     this.width = 101;
     this.height = 80;
-    this.speed = speed;
+    this.speed = this.getRandom(1, 4);
+  }
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  getRandom(min, max) {
+    return Math.random() * (max - min) + min;
   }
   update(dt) {
     /* // Update the enemy's position, required method for game
@@ -29,7 +31,9 @@ class Enemy {
             // all computers.
         }; */
 
-    return this.x >= 505 ? (this.x *= 0) : (this.x += this.speed) * dt;
+    return this.x >= 505
+      ? ((this.x *= 0), (this.y = this.getRandomInt(1, 3) * 73))
+      : (this.x += this.speed) * dt;
   }
   // Draw the enemy on the screen, required method for game
   render() {
@@ -90,10 +94,6 @@ class Player {
       console.log('hit!!!!');
       this.resetPlayerPos();
     }
-    if (collides(player, enemy5)) {
-      console.log('hit!!!!');
-      this.resetPlayerPos();
-    }
   }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -110,18 +110,18 @@ class Player {
     }
     console.log(this.x, this.y);
   }
+  //playerSelect()
 }
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const player = new Player(hornGirl, 2, 5);
-const enemy1 = new Enemy(0, 1, 0.5);
-const enemy2 = new Enemy(0, 1, 1.7);
-const enemy3 = new Enemy(0, 2, 3);
-const enemy4 = new Enemy(0, 3, 2.45);
-const enemy5 = new Enemy(0, 3, 3.75);
-allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5);
+const enemy1 = new Enemy();
+const enemy2 = new Enemy();
+const enemy3 = new Enemy();
+const enemy4 = new Enemy();
+allEnemies.push(enemy1, enemy2, enemy3, enemy4);
 
 // Collision function from https://stackoverflow.com/questions/13916966/adding-collision-detection-to-images-drawn-on-canvas
 function collides(a, b) {

@@ -13,7 +13,7 @@ You can find a playable version at [jrchapprogrammer/FEND-Arcade-Game](https://j
 
 ### Gameplay
 
-To start, you may select a **character**. Once selected, your character starts at the bottom of the field. The goal is to get your character to the **water**, while **avoiding the bugs**. If you get attacked by any bugs, your character has to start over.
+To start, <!-- you may select a **character**. Once selected,  -->your character starts at the bottom of the field. The goal is to get your character to the **water**, while **avoiding the bugs**. If you get attacked by any bugs, your character has to start over.
 
 ## Dependencies
 
