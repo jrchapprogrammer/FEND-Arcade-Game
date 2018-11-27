@@ -52,30 +52,24 @@ const { boy, catGirl, hornGirl, pinkGirl, princess } = sprites;
 class Player {
   constructor(sprite, positionX, positionY) {
     this.x = positionX * 101;
-    this.y = positionY * 83;
+    this.y = positionY * 80;
     this.sprite = sprite;
   }
-  update(dt) {}
+  update() {}
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
   handleInput(allowedKeys) {
-    if (allowedKeys === 37) {
-      this.x -= 1;
-      console.log('left');
+    if (allowedKeys === 'left') {
+      this.x -= 101;
+    } else if (allowedKeys === 'right') {
+      this.x += 101;
+    } else if (allowedKeys === 'up') {
+      this.y -= 83;
+    } else if (allowedKeys === 'down') {
+      this.y += 83;
     }
-    if (allowedKeys === 39) {
-      this.x += 1;
-      console.log('right');
-    }
-    if (allowedKeys === 38) {
-      this.y -= 1;
-      console.log('up');
-    }
-    if (allowedKeys === 40) {
-      this.y += 1;
-      console.log('down');
-    }
+    console.log(this.x, this.y);
   }
 }
 
