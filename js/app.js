@@ -55,28 +55,24 @@ class Player {
     this.y = positionY * 83;
     this.sprite = sprite;
   }
-  update(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-  }
+  update(dt) {}
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
   handleInput(allowedKeys) {
-    if (allowedKeys[e.keyCode] === 37) {
+    if (allowedKeys === 37) {
       this.x -= 1;
       console.log('left');
     }
-    if (allowedKeys[e.keyCode] === 39) {
+    if (allowedKeys === 39) {
       this.x += 1;
       console.log('right');
     }
-    if (allowedKeys[e.keyCode] === 38) {
+    if (allowedKeys === 38) {
       this.y -= 1;
       console.log('up');
     }
-    if (allowedKeys[e.keyCode] === 40) {
+    if (allowedKeys === 40) {
       this.y += 1;
       console.log('down');
     }
