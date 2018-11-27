@@ -61,6 +61,7 @@ class Player {
     this.initialY = positionY * 80;
     this.width = 90;
     this.height = 101;
+    this.score = 0;
   }
   resetPlayerPos() {
     this.x = this.initialX;
@@ -69,6 +70,8 @@ class Player {
   }
   update() {
     if (this.y < 68) {
+      this.score++; // **TODO** : add score count to board and win conditions
+      console.log(this.score);
       this.resetPlayerPos();
     }
     if (collides(player, enemy1)) {
