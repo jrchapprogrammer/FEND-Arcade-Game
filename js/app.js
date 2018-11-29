@@ -15,11 +15,13 @@ class Enemy {
     this.speed = this.getRandom(1, 4);
   }
   getRandomInt(min, max) {
+    // Random integer method
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   getRandom(min, max) {
+    // Random number method (with decimals)
     return Math.random() * (max - min) + min;
   }
   update(dt) {
@@ -53,7 +55,7 @@ const sprites = {
   pinkGirl: 'images/char-pink-girl.png',
   princess: 'images/char-princess-girl.png',
 };
-
+// **TODO** Implement character selection
 const { boy, catGirl, hornGirl, pinkGirl, princess } = sprites;
 
 class Player {
@@ -79,19 +81,15 @@ class Player {
       this.resetPlayerPos();
     }
     if (collides(player, enemy1)) {
-      console.log('hit!!!!');
       this.resetPlayerPos();
     }
     if (collides(player, enemy2)) {
-      console.log('hit!!!!');
       this.resetPlayerPos();
     }
     if (collides(player, enemy3)) {
-      console.log('hit!!!!');
       this.resetPlayerPos();
     }
     if (collides(player, enemy4)) {
-      console.log('hit!!!!');
       this.resetPlayerPos();
     }
   }
@@ -108,9 +106,7 @@ class Player {
     } else if (allowedKeys === 'down' && this.y < 400) {
       this.y += 83;
     }
-    console.log(this.x, this.y);
   }
-  //playerSelect()
 }
 
 // Now instantiate your objects.
