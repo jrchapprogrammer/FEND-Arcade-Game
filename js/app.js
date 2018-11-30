@@ -88,9 +88,9 @@ class Player {
   update() {
     if (this.y < 68) {
       this.score++; // **TODO** : add score count to board and win conditions
-      console.log(this.score);
       this.resetPlayerPos();
       if (this.score === 5) {
+        // Win condition
         this.win();
       }
     }
@@ -122,6 +122,7 @@ class Player {
     }
   }
   win() {
+    // Win condition modal
     let board = document.querySelector('canvas');
     board.classList.toggle('hide');
     let modalOverlay = document.querySelector('#modalOverlay');
@@ -130,16 +131,16 @@ class Player {
     modalWin.classList.toggle('hide');
     // modalWin.addEventListener('click', () => this.resetGame() )
   }
-  resetGame() {
-    this.score = 0;
-    allEnemies = [];
-    board.classList.toggle('hide');
-    let modalOverlay = document.querySelector('#modalOverlay');
-    let modalWin = document.querySelector('#modalWin');
-    modalOverlay.classList.toggle('hide');
-    modalWin.classList.toggle('hide');
-    startGame();
-  }
+  // resetGame() {
+  //   this.score = 0;
+  //   allEnemies = [];
+  //   board.classList.toggle('hide');
+  //   let modalOverlay = document.querySelector('#modalOverlay');
+  //   let modalWin = document.querySelector('#modalWin');
+  //   modalOverlay.classList.toggle('hide');
+  //   modalWin.classList.toggle('hide');
+  //   // startGame();
+  // }
 }
 
 // Now instantiate your objects.
