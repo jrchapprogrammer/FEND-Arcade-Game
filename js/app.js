@@ -1,4 +1,15 @@
+'use strict';
+// DOM interaction variables
 let allEnemies = []; // enemy array for resource loading
+let createModalWin = document.createElement('div');
+let createModalOverlay = document.createElement('div');
+createModalWin.classList.add('modalWin', 'hide');
+createModalWin.setAttribute('id', 'modalWin');
+createModalWin.innerHTML = `<h1>Congratulations!</h1><p>You won!!</p>`;
+createModalOverlay.classList.add('modalOverlay', 'hide');
+createModalOverlay.setAttribute('id', 'modalOverlay');
+document.body.appendChild(createModalOverlay);
+document.body.appendChild(createModalWin);
 
 // Enemies our player must avoid
 class Enemy {
@@ -79,6 +90,9 @@ class Player {
       this.score++; // **TODO** : add score count to board and win conditions
       console.log(this.score);
       this.resetPlayerPos();
+      if (this.score === 5) {
+        this.win();
+      }
     }
     if (collides(player, enemy1)) {
       this.resetPlayerPos();
@@ -107,11 +121,31 @@ class Player {
       this.y += 83;
     }
   }
+  win() {
+    let board = document.querySelector('canvas');
+    board.classList.toggle('hide');
+    let modalOverlay = document.querySelector('#modalOverlay');
+    let modalWin = document.querySelector('#modalWin');
+    modalOverlay.classList.toggle('hide');
+    modalWin.classList.toggle('hide');
+    // modalWin.addEventListener('click', () => this.resetGame() )
+  }
+  resetGame() {
+    this.score = 0;
+    allEnemies = [];
+    board.classList.toggle('hide');
+    let modalOverlay = document.querySelector('#modalOverlay');
+    let modalWin = document.querySelector('#modalWin');
+    modalOverlay.classList.toggle('hide');
+    modalWin.classList.toggle('hide');
+    startGame();
+  }
 }
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+
 const player = new Player(hornGirl, 2, 5);
 const enemy1 = new Enemy();
 const enemy2 = new Enemy();

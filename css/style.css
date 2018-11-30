@@ -1,17 +1,18 @@
 body {
   text-align: center;
 }
+
 /*
  * Modal styling for Character selection and win condition (**TODO**)
  */
 .modalOverlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(43, 36, 36, 0.8);
 }
 
 .hide {
@@ -29,13 +30,14 @@ body {
 } */
 
 .modalWin {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 25%;
   left: 25%;
-  height: 50%;
-  width: 50%;
+  height: 50vh;
+  width: 50vw;
   z-index: 2;
   background-color: aliceblue;
+  border-radius: 5px;
 }
 
 /* .player {
